@@ -11,7 +11,7 @@ type ProductCatalogProps = {
 
 export default function ProductCatalog({ products }: ProductCatalogProps) {
   return (
-    <Container component="main" id="produk" sx={{ py: 8 }}>
+    <Container component="main" id="produk" sx={{ pt: { xs: 3, md: 4 }, pb: { xs: 6, md: 8 } }}>
       <Typography variant="h5" component="h2">
         Katalog produk
       </Typography>

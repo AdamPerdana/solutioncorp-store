@@ -9,7 +9,8 @@ export default function HeroBanner() {
     <Box
       component="section"
       sx={{
-        py: { xs: 8, md: 12 },
+        pt: { xs: 6, md: 10 },
+        pb: { xs: 3, md: 4 },
         background:
           "radial-gradient(ellipse 600px 400px at 50% 0%, rgba(62,157,217,0.18), transparent)",
       }}

@@ -19,7 +19,7 @@ const FOOTER_LINKS = [
 
 export default function Footer() {
   return (
-    <Box component="footer" sx={{ borderTop: 1, borderColor: "divider", pt: 7, pb: 4 }}>
+    <Box component="footer" sx={{ borderTop: 1, borderColor: "divider", pt: 5, pb: 4 }}>
       <Container maxWidth="lg">
         <Grid container spacing={5}>
           {/* Tentang perusahaan */}
