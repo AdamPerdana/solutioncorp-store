@@ -18,6 +18,9 @@ import ListItemText from "@mui/material/ListItemText";
 import MenuIcon from "@mui/icons-material/Menu";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment";
+import { useCart } from "@/lib/cart";
+import CartDrawer from "@/components/CartDrawer";
+
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
@@ -27,6 +30,8 @@ const NAV_LINKS = [
 export default function Navbar() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [cartOpen, setCartOpen] = useState(false);
+  const { totalItems } = useCart();
 
   return (
     <>
@@ -85,9 +90,9 @@ export default function Navbar() {
               ))}
             </Box>
 
-            {/* Keranjang: fungsinya dibuat nanti */}
-            <IconButton aria-label="Buka keranjang">
-              <Badge badgeContent={0} color="primary">
+            {/* Keranjang*/}
+            <IconButton onClick={() => setCartOpen(true)} aria-label="Buka keranjang">
+              <Badge badgeContent={totalItems} color="primary">
                 <ShoppingCartOutlinedIcon />
               </Badge>
             </IconButton>
@@ -116,6 +121,8 @@ export default function Navbar() {
           </List>
         </Box>
       </Drawer>
+      {/* Panel keranjang */}
+      <CartDrawer open={cartOpen} onClose={() => setCartOpen(false)} />
     </>
   );
 }

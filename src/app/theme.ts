@@ -28,6 +28,17 @@ const theme = createTheme({
   shape: {
     borderRadius: 12,
   },
+  components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+                body: {
+          backgroundImage:
+            "radial-gradient(ellipse 900px 500px at 50% -10%, rgba(62,157,217,0.14), transparent)",
+          backgroundAttachment: "fixed",
+        },
+      },
+    },
+  },
 });
 
 export default theme;

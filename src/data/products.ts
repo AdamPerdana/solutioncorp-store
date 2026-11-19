@@ -8,6 +8,12 @@ export const products: Product[] = [
     price: 12500,
     description: "Sterno gel untuk buffet, menyala stabil sekitar 2 jam.",
     image: null,
+    specs: [
+      { label: "Jenis", value: "Gel" },
+      { label: "Berat bersih", value: "200 g" },
+      { label: "Durasi nyala", value: "± 2 jam" },
+      { label: "Isi per karton", value: "48 pcs" },
+    ],
   },
   {
     id: 2,
@@ -16,6 +22,12 @@ export const products: Product[] = [
     price: 45000,
     description: "Kemasan isi ulang untuk kebutuhan katering harian.",
     image: null,
+    specs: [
+      { label: "Jenis", value: "Gel" },
+      { label: "Berat bersih", value: "200 g" },
+      { label: "Durasi nyala", value: "± 2 jam" },
+      { label: "Isi per karton", value: "48 pcs" },
+    ],
   },
   {
     id: 3,
@@ -24,6 +36,12 @@ export const products: Product[] = [
     price: 18000,
     description: "Sterno kaleng siap pakai, durasi nyala sekitar 3 jam.",
     image: null,
+    specs: [
+      { label: "Jenis", value: "Gel" },
+      { label: "Berat bersih", value: "200 g" },
+      { label: "Durasi nyala", value: "± 2 jam" },
+      { label: "Isi per karton", value: "48 pcs" },
+    ],
   },
   {
     id: 4,
@@ -32,5 +50,15 @@ export const products: Product[] = [
     price: 27000,
     description: "Untuk acara panjang seperti resepsi dan konferensi.",
     image: null,
+    specs: [
+      { label: "Jenis", value: "Gel" },
+      { label: "Berat bersih", value: "200 g" },
+      { label: "Durasi nyala", value: "± 2 jam" },
+      { label: "Isi per karton", value: "48 pcs" },
+    ],
   },
 ];
+
+export function getProductBySlug(slug: string): Product | undefined {
+  return products.find((product) => product.slug === slug);
+}
