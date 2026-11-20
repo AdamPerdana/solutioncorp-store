@@ -2,7 +2,7 @@ import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
-import ProductCard from "@/components/ProductCard";
+import ProductCard from "@/components/product/ProductCard";
 import type { Product } from "@/types";
 
 type ProductCatalogProps = {

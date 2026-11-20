@@ -1,5 +1,5 @@
-import HeroBanner from "@/components/HeroBanner";
-import ProductCatalog from "@/components/ProductCatalog";
+import HeroBanner from "@/components/home/HeroBanner";
+import ProductCatalog from "@/components/product/ProductCatalog";
 import { products } from "@/data/products";
 
 export default function HomePage() {

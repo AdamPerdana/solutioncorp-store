@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
-import CheckoutForm from "@/components/CheckoutForm";
+import CheckoutForm from "@/components/checkout/CheckoutForm";
 
 export const metadata: Metadata = {
   title: "Checkout | Solution Corp Indonesia",

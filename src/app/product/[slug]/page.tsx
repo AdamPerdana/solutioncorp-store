@@ -20,10 +20,10 @@ import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment";
 import LocalShippingOutlinedIcon from "@mui/icons-material/LocalShippingOutlined";
 import VerifiedUserOutlinedIcon from "@mui/icons-material/VerifiedUserOutlined";
 import Inventory2OutlinedIcon from "@mui/icons-material/Inventory2Outlined";
-import ProductCard from "@/components/ProductCard";
+import ProductCard from "@/components/product/ProductCard";
 import { products, getProductBySlug } from "@/data/products";
 import { formatRupiah } from "@/lib/format";
-import AddToCart from "@/components/AddToCart";
+import AddToCart from "@/components/product/AddToCart";
 
 type ProductPageProps = {
   params: Promise<{ slug: string }>;

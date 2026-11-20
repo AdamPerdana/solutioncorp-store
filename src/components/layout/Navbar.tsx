@@ -19,7 +19,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment";
 import { useCart } from "@/lib/cart";
-import CartDrawer from "@/components/CartDrawer";
+import CartDrawer from "@/components/Cart/CartDrawer";
 
 
 const NAV_LINKS = [
