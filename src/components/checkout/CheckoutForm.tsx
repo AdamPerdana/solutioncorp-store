@@ -17,7 +17,6 @@ import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import MuiLink from "@mui/material/Link";
-import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import CheckCircleOutlinedIcon from "@mui/icons-material/CheckCircleOutlined";
 import type { CheckoutData, Region } from "@/types";
