@@ -19,12 +19,12 @@ import ListItemText from "@mui/material/ListItemText";
 import MuiLink from "@mui/material/Link";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import CheckCircleOutlinedIcon from "@mui/icons-material/CheckCircleOutlined";
-import type { CheckoutData, Region } from "@/types";
+import type { CheckoutData } from "@/types";
 import { useCart } from "@/lib/cart";
 import { formatRupiah } from "@/lib/format";
-import { buildOrderMessage, buildWhatsAppUrl } from "@/lib/whatsapp";
+import { REGIONS, validateCheckout, type FormErrors } from "@/lib/checkout";
+import { createOrder } from "@/app/checkout/actions";
 
-const REGIONS: Region[] = ["Jabodetabek", "Luar Jabodetabek"];
 const NEXT_STEPS = [
   "Admin mengonfirmasi pesanan dan ongkos kirim",
   "Anda melakukan pembayaran sesuai total",
@@ -39,24 +39,14 @@ const EMPTY_FORM: CheckoutData = {
   address: "",
 };
 
-type FormErrors = Partial<Record<keyof CheckoutData, string>>;
-
-function validate(data: CheckoutData): FormErrors {
-  const errors: FormErrors = {};
-  if (!data.name.trim()) errors.name = "Nama wajib diisi";
-  if (!/^(\+62|62|0)8\d{7,12}$/.test(data.phone.replace(/[\s-]/g, ""))) {
-    errors.phone = "Nomor WhatsApp tidak valid, contoh: 081234567890";
-  }
-  if (!data.region) errors.region = "Pilih wilayah pengiriman";
-  if (!data.address.trim()) errors.address = "Alamat wajib diisi";
-  return errors;
-}
-
 export default function CheckoutForm() {
   const { items, subtotal, clearCart } = useCart();
   const [form, setForm] = useState<CheckoutData>(EMPTY_FORM);
   const [errors, setErrors] = useState<FormErrors>({});
   const [whatsappUrl, setWhatsappUrl] = useState<string | null>(null);
+  const [orderCode, setOrderCode] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
   const handleChange = (field: keyof CheckoutData) => (
     e: React.ChangeEvent<HTMLInputElement>,
@@ -65,22 +55,41 @@ export default function CheckoutForm() {
     setErrors((prev) => ({ ...prev, [field]: undefined }));
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setSubmitError("");
 
-    const newErrors = validate(form);
+    const newErrors = validateCheckout(form);
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
       return;
     }
 
-    const url = buildWhatsAppUrl(buildOrderMessage(form, items, subtotal));
-    window.open(url, "_blank");
-    setWhatsappUrl(url);
+    // Buka tab kosong SEKARANG (saat klik), supaya tidak diblokir browser
+    const waWindow = window.open("", "_blank");
+    setSubmitting(true);
+
+    const result = await createOrder(
+      form,
+      items.map((item) => ({ id: item.id, qty: item.qty })),
+    );
+
+    setSubmitting(false);
+
+    if (!result.ok) {
+      waWindow?.close();
+      if (result.errors) setErrors(result.errors);
+      if (result.message) setSubmitError(result.message);
+      return;
+    }
+
+    if (waWindow) waWindow.location.href = result.whatsappUrl;
+    setOrderCode(result.orderCode);
+    setWhatsappUrl(result.whatsappUrl);
     clearCart();
   };
 
-  // Setelah pesanan di buat
+  // Setelah pesanan dibuat
   if (whatsappUrl) {
     return (
       <Paper variant="outlined" sx={{ p: { xs: 3, md: 6 }, maxWidth: 560, mx: "auto" }}>
@@ -91,6 +100,9 @@ export default function CheckoutForm() {
           </Typography>
           <Typography color="text.secondary" sx={{ mt: 1 }}>
             Admin kami akan segera menghubungi Anda melalui WhatsApp.
+          </Typography>
+          <Typography sx={{ mt: 2 }}>
+            Nomor pesanan: <b>#{orderCode}</b>
           </Typography>
         </Box>
 
@@ -124,7 +136,7 @@ export default function CheckoutForm() {
     );
   }
 
-  // Kosongkan Keranjang
+  // Keranjang kosong
   if (items.length === 0) {
     return (
       <Paper variant="outlined" sx={{ p: 6, textAlign: "center" }}>
@@ -227,15 +239,21 @@ export default function CheckoutForm() {
             <Alert severity="info" sx={{ mt: 2 }}>
               Ongkir akan dikonfirmasi oleh admin.
             </Alert>
+            {submitError && (
+              <Alert severity="error" sx={{ mt: 2 }}>
+                {submitError}
+              </Alert>
+            )}
             <Button
               type="submit"
               variant="contained"
               size="large"
               fullWidth
+              loading={submitting}
               startIcon={<CheckCircleOutlinedIcon />}
               sx={{ mt: 3 }}
             >
-              Konfirmasi Pesanan
+              Konfirmasi pesanan
             </Button>
           </Paper>
         </Grid>

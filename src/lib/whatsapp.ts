@@ -1,21 +1,34 @@
-import type { CartItem, CheckoutData } from "@/types";
+import type { CheckoutData } from "@/types";
 import { formatRupiah } from "@/lib/format";
 
 export const ADMIN_WHATSAPP = "628882234566";
 
-export function buildOrderMessage(data: CheckoutData, items: CartItem[], subtotal: number): string {
+export type OrderLine = {
+  name: string;
+  price: number;
+  qty: number;
+};
+
+export function buildOrderMessage(
+  orderCode: string,
+  data: CheckoutData,
+  lines: OrderLine[],
+  subtotal: number,
+): string {
   const customerLines = [
+    `*Pesanan #${orderCode}*`,
+    "",
     "*Pemesan*",
     `Nama: ${data.name}`,
     data.company ? `Usaha: ${data.company}` : null,
     `WA: ${data.phone}`,
     `Wilayah: ${data.region}`,
     `Alamat: ${data.address}`,
-  ].filter(Boolean);
+  ].filter((line) => line !== null);
 
-  const itemLines = items.map(
-    (item, index) =>
-      `${index + 1}. ${item.name} × ${item.qty} = ${formatRupiah(item.price * item.qty)}`,
+  const itemLines = lines.map(
+    (line, index) =>
+      `${index + 1}. ${line.name} × ${line.qty} = ${formatRupiah(line.price * line.qty)}`,
   );
 
   return [

@@ -1,8 +1,12 @@
 import HeroBanner from "@/components/home/HeroBanner";
 import ProductCatalog from "@/components/product/ProductCatalog";
-import { products } from "@/data/products";
+import { getProducts } from "@/lib/products";
 
-export default function HomePage() {
+export const dynamic = "force-dynamic";
+
+export default async function HomePage() {
+  const products = await getProducts();
+
   return (
     <>
       <HeroBanner />

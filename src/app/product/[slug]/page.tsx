@@ -21,13 +21,15 @@ import LocalShippingOutlinedIcon from "@mui/icons-material/LocalShippingOutlined
 import VerifiedUserOutlinedIcon from "@mui/icons-material/VerifiedUserOutlined";
 import Inventory2OutlinedIcon from "@mui/icons-material/Inventory2Outlined";
 import ProductCard from "@/components/product/ProductCard";
-import { products, getProductBySlug } from "@/data/products";
-import { formatRupiah } from "@/lib/format";
 import AddToCart from "@/components/product/AddToCart";
+import { getProducts, getProductBySlug } from "@/lib/products";
+import { formatRupiah } from "@/lib/format";
 
 type ProductPageProps = {
   params: Promise<{ slug: string }>;
 };
+
+export const dynamic = "force-dynamic";
 
 const HIGHLIGHTS = [
   { Icon: LocalShippingOutlinedIcon, text: "Pengiriman 24 jam" },
@@ -35,13 +37,9 @@ const HIGHLIGHTS = [
   { Icon: Inventory2OutlinedIcon, text: "Siap pesanan partai besar" },
 ];
 
-export function generateStaticParams() {
-  return products.map((product) => ({ slug: product.slug }));
-}
-
 export async function generateMetadata({ params }: ProductPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const product = getProductBySlug(slug);
+  const product = await getProductBySlug(slug);
 
   if (!product) {
     return { title: "Produk tidak ditemukan | Solution Corp Indonesia" };
@@ -55,13 +53,14 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
 
 export default async function ProductPage({ params }: ProductPageProps) {
   const { slug } = await params;
-  const product = getProductBySlug(slug);
+  const product = await getProductBySlug(slug);
 
   if (!product) {
     notFound();
   }
 
-  const otherProducts = products.filter((p) => p.id !== product.id).slice(0, 4);
+  const allProducts = await getProducts();
+  const otherProducts = allProducts.filter((p) => p.id !== product.id).slice(0, 4);
 
   return (
     <Container component="main" sx={{ pt: { xs: 3, md: 5 }, pb: { xs: 6, md: 8 } }}>
@@ -102,8 +101,9 @@ export default async function ProductPage({ params }: ProductPageProps) {
           </Typography>
           <Typography variant="h5" color="secondary" sx={{ mt: 2, fontWeight: 600 }}>
             {formatRupiah(product.price)}
-            <AddToCart product={product} />
           </Typography>
+
+          <AddToCart product={product} />
 
           {/* Keunggulan */}
           <List dense sx={{ mt: 2 }}>
