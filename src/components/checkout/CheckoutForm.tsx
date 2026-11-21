@@ -23,7 +23,7 @@ import type { CheckoutData } from "@/types";
 import { useCart } from "@/lib/cart";
 import { formatRupiah } from "@/lib/format";
 import { REGIONS, validateCheckout, type FormErrors } from "@/lib/checkout";
-import { createOrder } from "@/app/checkout/actions";
+import { createOrder } from "@/app/(store)/checkout/actions";
 
 const NEXT_STEPS = [
   "Admin mengonfirmasi pesanan dan ongkos kirim",
