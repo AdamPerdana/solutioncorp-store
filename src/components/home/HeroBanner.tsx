@@ -28,11 +28,11 @@ export default function HeroBanner() {
 
         <Typography
           color="text.secondary"
-          sx={{ mt: 3, mx: "auto", maxWidth: 480, fontSize: "1.05rem" }}
+          sx={{ mt: 3, mx: "auto", maxWidth: 780, fontSize: "1.05rem" }}
         >
           Sterno gel PT Solution Corp Indonesia dirancang untuk kebutuhan
           operasional Hotel, Restoran, dan Katering, dengan pembakaran bersih
-          dan konsisten dari batch pertama hingga terakhir.
+          dan konsisten dari awal hingga akhir.
         </Typography>
       </Container>
     </Box>

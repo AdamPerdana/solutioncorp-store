@@ -33,7 +33,7 @@ export const dynamic = "force-dynamic";
 
 const HIGHLIGHTS = [
   { Icon: LocalShippingOutlinedIcon, text: "Pengiriman 24 jam" },
-  { Icon: VerifiedUserOutlinedIcon, text: "Produk resmi & legal" },
+  { Icon: VerifiedUserOutlinedIcon, text: "Bersertifikasi ISO 9001:2015 & KAN" },
   { Icon: Inventory2OutlinedIcon, text: "Siap pesanan partai besar" },
 ];
 

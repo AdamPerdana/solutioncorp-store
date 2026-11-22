@@ -6,7 +6,6 @@ import CardActionArea from "@mui/material/CardActionArea";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Box from "@mui/material/Box";
-import Chip from "@mui/material/Chip";
 import Typography from "@mui/material/Typography";
 import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment";
 import type { Product } from "@/types";
@@ -45,15 +44,6 @@ export default function ProductCard({ product, featured = false }: ProductCardPr
             >
               <LocalFireDepartmentIcon color="primary" sx={{ fontSize: 56 }} />
             </Box>
-          )}
-
-          {featured && (
-            <Chip
-              label="Terlaris"
-              color="primary"
-              size="small"
-              sx={{ position: "absolute", top: 8, right: 8, fontWeight: 600 }}
-            />
           )}
         </Box>
 
