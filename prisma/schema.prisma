@@ -78,3 +78,14 @@ enum OrderStatus {
   BARU
   SELESAI
 }
+
+
+model DailyVisitor {
+  visitorId String   @db.VarChar(36)
+  day       String   @db.VarChar(10) // tanggal WIB, contoh: "2026-11-22"
+  createdAt DateTime @default(now())
+
+  @@id([visitorId, day])
+  @@index([day])
+  @@map("daily_visitors")
+}

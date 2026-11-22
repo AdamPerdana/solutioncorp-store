@@ -16,7 +16,7 @@ export default async function AdminLeadsPage() {
 
   const orders = await prisma.order.findMany({
     include: { items: true },
-    // Yang belum di-FU di atas, lalu yang terbaru dulu
+    // Yang belum di-FU di atas
     orderBy: [{ status: "asc" }, { createdAt: "desc" }],
   });
 

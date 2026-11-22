@@ -9,20 +9,30 @@ import Typography from "@mui/material/Typography";
 type StatCardProps = {
   label: string;
   value: number;
-  href: string;
+  href?: string; // opsional: kalau ada, kartu bisa diklik
 };
 
 export default function StatCard({ label, value, href }: StatCardProps) {
+  const content = (
+    <CardContent>
+      <Typography variant="body2" color="text.secondary">
+        {label}
+      </Typography>
+      <Typography variant="h4" component="p" sx={{ mt: 1 }}>
+        {value}
+      </Typography>
+    </CardContent>
+  );
+
   return (
-    <Card variant="outlined">
-      <CardActionArea component={Link} href={href}>
-        <CardContent>
-          <Typography color="text.secondary">{label}</Typography>
-          <Typography variant="h3" component="p" sx={{ mt: 1 }}>
-            {value}
-          </Typography>
-        </CardContent>
-      </CardActionArea>
+    <Card variant="outlined" sx={{ height: "100%" }}>
+      {href ? (
+        <CardActionArea component={Link} href={href} sx={{ height: "100%" }}>
+          {content}
+        </CardActionArea>
+      ) : (
+        content
+      )}
     </Card>
   );
 }
