@@ -3,8 +3,8 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import ProductTable, { type AdminProductRow } from "@/components/admin/ProductTable";
 import AddProductButton from "@/components/admin/AddProductButton";
-import { requireAdmin } from "@/lib/auth";
-import { prisma } from "@/lib/prisma";
+import { requireAdmin } from "@/lib/auth/auth";
+import { prisma } from "@/lib/db/prisma";
 
 export const metadata: Metadata = {
   title: "Produk | Admin Solution Corp",

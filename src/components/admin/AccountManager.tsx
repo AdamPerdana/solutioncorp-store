@@ -25,7 +25,7 @@ import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import PersonAddOutlinedIcon from "@mui/icons-material/PersonAddOutlined";
 import KeyOutlinedIcon from "@mui/icons-material/KeyOutlined";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
-import { validatePassword, validateUsername } from "@/lib/admin-form";
+import { validatePassword, validateUsername } from "@/lib/auth/admin-form";
 import { changePassword, createAdmin, deleteAdmin } from "@/app/admin/(dashboard)/accounts/actions";
 
 export type AdminAccountRow = {

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { toWhatsAppNumber } from "@/lib/order";
+import { toWhatsAppNumber } from "@/lib/orders/order";
 
 describe("toWhatsAppNumber", () => {
   it("mengganti 0 di depan jadi 62", () => {

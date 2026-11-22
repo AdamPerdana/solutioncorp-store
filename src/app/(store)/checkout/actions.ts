@@ -1,14 +1,14 @@
 "use server";
 
-import { prisma } from "@/lib/prisma";
+import { prisma } from "@/lib/db/prisma";
 import type { CheckoutData } from "@/types";
 import {
   formatOrderCode,
   normalizePhone,
   validateCheckout,
   type FormErrors,
-} from "@/lib/checkout";
-import { buildOrderMessage, buildWhatsAppUrl, type OrderLine } from "@/lib/whatsapp";
+} from "@/lib/orders/checkout";
+import { buildOrderMessage, buildWhatsAppUrl, type OrderLine } from "@/lib/orders/whatsapp";
 
 type CartInput = {
   id: number;

@@ -16,7 +16,7 @@ import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment";
 import { useCart } from "@/lib/cart";
-import { formatRupiah } from "@/lib/format";
+import { formatRupiah } from "@/lib/utils/format";
 
 type CartDrawerProps = {
   open: boolean;

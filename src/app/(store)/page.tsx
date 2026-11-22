@@ -1,6 +1,6 @@
 import HeroBanner from "@/components/home/HeroBanner";
 import ProductCatalog from "@/components/product/ProductCatalog";
-import { getProducts } from "@/lib/products";
+import { getProducts } from "@/lib/products/queries";
 
 export const dynamic = "force-dynamic";
 

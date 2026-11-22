@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Typography from "@mui/material/Typography";
 import ProductForm from "@/components/admin/ProductForm";
-import { requireAdmin } from "@/lib/auth";
-import { prisma } from "@/lib/prisma";
+import { requireAdmin } from "@/lib/auth/auth";
+import { prisma } from "@/lib/db/prisma";
 
 export const metadata: Metadata = {
   title: "Edit produk | Admin Solution Corp",

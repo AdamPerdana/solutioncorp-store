@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
 import AdminSidebar from "@/components/admin/AdminSidebar";
 import { SIDEBAR_WIDTH } from "@/components/admin/constants";
-import { requireAdmin } from "@/lib/auth";
+import { requireAdmin } from "@/lib/auth/auth";
 
 export default async function AdminDashboardLayout({
   children,

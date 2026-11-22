@@ -1,5 +1,5 @@
 import type { CheckoutData } from "@/types";
-import { formatRupiah } from "@/lib/format";
+import { formatRupiah } from "@/lib/utils/format";
 
 export const ADMIN_WHATSAPP = "628882234566";
 

@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Typography from "@mui/material/Typography";
 import ProductForm from "@/components/admin/ProductForm";
-import { requireAdmin } from "@/lib/auth";
-import { EMPTY_PRODUCT_FORM } from "@/lib/product-form";
+import { requireAdmin } from "@/lib/auth/auth";
+import { EMPTY_PRODUCT_FORM } from "@/lib/products/product-form";
 
 export const metadata: Metadata = {
   title: "Tambah produk | Admin Solution Corp",

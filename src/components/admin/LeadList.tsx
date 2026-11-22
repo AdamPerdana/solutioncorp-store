@@ -11,8 +11,8 @@ import Button from "@mui/material/Button";
 import Divider from "@mui/material/Divider";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
-import { formatRupiah } from "@/lib/format";
-import { FOLLOW_UP_LABELS, toWhatsAppNumber } from "@/lib/order";
+import { formatRupiah } from "@/lib/utils/format";
+import { FOLLOW_UP_LABELS, toWhatsAppNumber } from "@/lib/orders/order";
 import { setFollowUp } from "@/app/admin/(dashboard)/leads/action";
 
 export type LeadRow = {

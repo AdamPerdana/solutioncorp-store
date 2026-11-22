@@ -21,7 +21,7 @@ import {
   validateProductForm,
   type ProductFormData,
   type ProductFormErrors,
-} from "@/lib/product-form";
+} from "@/lib/products/product-form";
 import {
   createProduct,
   updateProduct,

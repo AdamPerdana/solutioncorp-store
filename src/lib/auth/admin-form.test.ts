@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { validatePassword, validateUsername } from "@/lib/admin-form";
+import { validatePassword, validateUsername } from "@/lib/auth/admin-form";
 
 describe("validateUsername", () => {
   it.each(["adam", "Adam_Perdana", "staff01", "abc"])("menerima username %s", (username) => {

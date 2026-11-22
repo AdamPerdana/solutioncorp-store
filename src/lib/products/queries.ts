@@ -1,5 +1,6 @@
+import "server-only";
 import { cache } from "react";
-import { prisma } from "@/lib/prisma";
+import { prisma } from "@/lib/db/prisma";
 import type { Product } from "@/types";
 
 export async function getProducts(): Promise<Product[]> {

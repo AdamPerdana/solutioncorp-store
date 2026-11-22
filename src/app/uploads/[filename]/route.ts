@@ -1,6 +1,6 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
-import { SAFE_FILENAME, UPLOAD_DIR } from "@/lib/uploads";
+import { SAFE_FILENAME, UPLOAD_DIR } from "@/lib/products/uploads";
 
 const CONTENT_TYPES: Record<string, string> = {
   jpg: "image/jpeg",

@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Typography from "@mui/material/Typography";
 import AccountManager, { type AdminAccountRow } from "@/components/admin/AccountManager";
-import { requireAdmin } from "@/lib/auth";
-import { prisma } from "@/lib/prisma";
-import { formatDateTime } from "@/lib/order";
+import { requireAdmin } from "@/lib/auth/auth";
+import { prisma } from "@/lib/db/prisma";
+import { formatDateTime } from "@/lib/orders/order";
 
 export const metadata: Metadata = {
   title: "Akun admin | Admin Solution Corp",

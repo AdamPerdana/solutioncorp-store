@@ -2,9 +2,9 @@
 
 import bcrypt from "bcryptjs";
 import { revalidatePath } from "next/cache";
-import { prisma } from "@/lib/prisma";
-import { requireAdmin } from "@/lib/auth";
-import { validatePassword, validateUsername } from "@/lib/admin-form";
+import { prisma } from "@/lib/db/prisma";
+import { requireAdmin } from "@/lib/auth/auth";
+import { validatePassword, validateUsername } from "@/lib/auth/admin-form";
 
 type ActionResult = { ok: true; message: string } | { ok: false; error: string };
 

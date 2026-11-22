@@ -21,8 +21,8 @@ import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import CheckCircleOutlinedIcon from "@mui/icons-material/CheckCircleOutlined";
 import type { CheckoutData } from "@/types";
 import { useCart } from "@/lib/cart";
-import { formatRupiah } from "@/lib/format";
-import { REGIONS, validateCheckout, type FormErrors } from "@/lib/checkout";
+import { formatRupiah } from "@/lib/utils/format";
+import { REGIONS, validateCheckout, type FormErrors } from "@/lib/orders/checkout";
 import { createOrder } from "@/app/(store)/checkout/actions";
 
 const NEXT_STEPS = [

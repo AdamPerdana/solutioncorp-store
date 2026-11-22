@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import LeadList, { type LeadRow } from "@/components/admin/LeadList";
-import { requireAdmin } from "@/lib/auth";
-import { prisma } from "@/lib/prisma";
-import { formatOrderCode } from "@/lib/checkout";
-import { formatDateTime, formatShortDate } from "@/lib/order";
+import { requireAdmin } from "@/lib/auth/auth";
+import { prisma } from "@/lib/db/prisma";
+import { formatOrderCode } from "@/lib/orders/checkout";
+import { formatDateTime, formatShortDate } from "@/lib/orders/order";
 
 export const metadata: Metadata = {
   title: "Leads | Admin Solution Corp",

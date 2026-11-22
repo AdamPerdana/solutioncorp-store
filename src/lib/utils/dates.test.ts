@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { lastNDays, toJakartaDateKey } from "@/lib/dates";
+import { lastNDays, toJakartaDateKey } from "@/lib/utils/dates";
 
 describe("toJakartaDateKey", () => {
   it("memakai format YYYY-MM-DD", () => {

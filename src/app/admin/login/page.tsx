@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import Box from "@mui/material/Box";
 import LoginForm from "@/components/admin/LoginForm";
-import { getCurrentAdmin } from "@/lib/auth";
+import { getCurrentAdmin } from "@/lib/auth/auth";
 
 export const metadata: Metadata = {
   title: "Login Admin | Solution Corp Indonesia",

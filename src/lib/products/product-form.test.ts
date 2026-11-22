@@ -4,7 +4,7 @@ import {
   slugify,
   validateProductForm,
   type ProductFormData,
-} from "@/lib/product-form";
+} from "@/lib/products/product-form";
 
 describe("slugify", () => {
   it("mengubah nama produk jadi slug", () => {

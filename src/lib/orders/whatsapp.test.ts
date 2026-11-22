@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { ADMIN_WHATSAPP, buildOrderMessage, buildWhatsAppUrl, type OrderLine } from "@/lib/whatsapp";
+import { ADMIN_WHATSAPP, buildOrderMessage, buildWhatsAppUrl, type OrderLine } from "@/lib/orders/whatsapp";
 import type { CheckoutData } from "@/types";
 
 const customer: CheckoutData = {

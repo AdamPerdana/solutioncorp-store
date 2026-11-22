@@ -2,8 +2,8 @@
 
 import bcrypt from "bcryptjs";
 import { redirect } from "next/navigation";
-import { prisma } from "@/lib/prisma";
-import { createSession } from "@/lib/session";
+import { prisma } from "@/lib/db/prisma";
+import { createSession } from "@/lib/auth/session";
 
 type LoginInput = {
   username: string;

@@ -25,7 +25,7 @@ import Alert from "@mui/material/Alert";
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment";
-import { formatRupiah } from "@/lib/format";
+import { formatRupiah } from "@/lib/utils/format";
 import { deleteProduct } from "@/app/admin/(dashboard)/products/actions";
 
 export type AdminProductRow = {

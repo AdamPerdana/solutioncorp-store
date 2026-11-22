@@ -3,9 +3,9 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import StatCard from "@/components/admin/StatCard";
 import VisitorChart from "@/components/admin/VisitorChart";
-import { requireAdmin } from "@/lib/auth";
-import { prisma } from "@/lib/prisma";
-import { lastNDays } from "@/lib/dates";
+import { requireAdmin } from "@/lib/auth/auth";
+import { prisma } from "@/lib/db/prisma";
+import { lastNDays } from "@/lib/utils/dates";
 
 export const metadata: Metadata = {
   title: "Ringkasan | Admin Solution Corp",

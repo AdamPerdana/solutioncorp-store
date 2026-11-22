@@ -1,5 +1,5 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { decrypt, SESSION_COOKIE } from "@/lib/session";
+import { decrypt, SESSION_COOKIE } from "@/lib/auth/session";
 
 export async function proxy(request: NextRequest) {
   const isLoginPage = request.nextUrl.pathname === "/admin/login";

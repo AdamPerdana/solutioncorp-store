@@ -22,8 +22,8 @@ import VerifiedUserOutlinedIcon from "@mui/icons-material/VerifiedUserOutlined";
 import Inventory2OutlinedIcon from "@mui/icons-material/Inventory2Outlined";
 import ProductCard from "@/components/product/ProductCard";
 import AddToCart from "@/components/product/AddToCart";
-import { getProducts, getProductBySlug } from "@/lib/products";
-import { formatRupiah } from "@/lib/format";
+import { getProducts, getProductBySlug } from "@/lib/products/queries";
+import { formatRupiah } from "@/lib/utils/format";
 
 type ProductPageProps = {
   params: Promise<{ slug: string }>;

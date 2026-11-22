@@ -2,7 +2,7 @@ import "dotenv/config";
 import { createInterface } from "node:readline/promises";
 import { stdin as input, stdout as output } from "node:process";
 import bcrypt from "bcryptjs";
-import { prisma } from "@/lib/prisma";
+import { prisma } from "@/lib/db/prisma";
 
 async function main() {
   const rl = createInterface({ input, output });

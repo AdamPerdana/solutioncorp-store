@@ -42,3 +42,9 @@ next-env.d.ts
 
 # prismawqw
 /src/generated/prisma
+
+# foto produk
+/uploads
+
+# catatan 
+catatan.md

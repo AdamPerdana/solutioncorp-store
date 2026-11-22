@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { formatRupiah } from "@/lib/format";
+import { formatRupiah } from "@/lib/utils/format";
 
 describe("formatRupiah", () => {
   it("menambahkan Rp dan titik ribuan", () => {

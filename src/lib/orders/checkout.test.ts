@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { formatOrderCode, normalizePhone, validateCheckout } from "@/lib/checkout";
+import { formatOrderCode, normalizePhone, validateCheckout } from "@/lib/orders/checkout";
 import type { CheckoutData, Region } from "@/types";
 
 // Data yang PASTI valid. Setiap test cukup mengubah satu hal dari sini.

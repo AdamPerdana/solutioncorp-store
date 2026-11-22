@@ -10,7 +10,7 @@ import Chip from "@mui/material/Chip";
 import Typography from "@mui/material/Typography";
 import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment";
 import type { Product } from "@/types";
-import { formatRupiah } from "@/lib/format";
+import { formatRupiah } from "@/lib/utils/format";
 
 type ProductCardProps = {
   product: Product;

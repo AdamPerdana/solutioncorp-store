@@ -2,15 +2,15 @@
 
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-import { prisma } from "@/lib/prisma";
-import { requireAdmin } from "@/lib/auth";
-import { deleteImage, saveImage } from "@/lib/uploads";
+import { prisma } from "@/lib/db/prisma";
+import { requireAdmin } from "@/lib/auth/auth";
+import { deleteImage, saveImage } from "@/lib/products/uploads";
 import {
   parsePrice,
   validateProductForm,
   type ProductFormData,
   type ProductFormErrors,
-} from "@/lib/product-form";
+} from "@/lib/products/product-form";
 
 type SaveResult = { errors: ProductFormErrors };
 

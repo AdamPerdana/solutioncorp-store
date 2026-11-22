@@ -2,8 +2,8 @@
 
 import { randomUUID } from "node:crypto";
 import { cookies } from "next/headers";
-import { prisma } from "@/lib/prisma";
-import { toJakartaDateKey } from "@/lib/dates";
+import { prisma } from "@/lib/db/prisma";
+import { toJakartaDateKey } from "@/lib/utils/dates";
 
 const VISITOR_COOKIE = "visitor_id";
 const ONE_YEAR_MS = 365 * 24 * 60 * 60 * 1000;
