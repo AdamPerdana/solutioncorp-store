@@ -20,7 +20,7 @@ export default async function AdminHomePage() {
   return (
     <>
       <Typography variant="h4" component="h1">
-        Halo, {admin.username} 👋
+        Halo, {admin.username} 
       </Typography>
       <Typography color="text.secondary" sx={{ mt: 0.5, mb: 4 }}>
         Ringkasan toko Solution Corp Indonesia.
