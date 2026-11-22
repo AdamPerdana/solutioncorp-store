@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default async function AdminHomePage() {
   const admin = await requireAdmin();
 
-  const [productCount, newOrderCount] = await Promise.all([
+  const [productCount, notFollowedUpCount] = await Promise.all([
     prisma.product.count(),
     prisma.order.count({ where: { status: "BARU" } }),
   ]);
@@ -28,7 +28,7 @@ export default async function AdminHomePage() {
 
       <Grid container spacing={2}>
         <Grid size={{ xs: 12, sm: 6 }}>
-          <StatCard label="Pesanan baru" value={newOrderCount} href="/admin/orders" />
+          <StatCard label="Belum di-FU" value={notFollowedUpCount} href="/admin/leads" />
         </Grid>
         <Grid size={{ xs: 12, sm: 6 }}>
           <StatCard label="Jumlah produk" value={productCount} href="/admin/products" />

@@ -78,7 +78,7 @@ export default function ProductTable({ products }: ProductTableProps) {
               <TableCell align="center" sx={{ display: { xs: "none", sm: "table-cell" } }}>
                 Spesifikasi
               </TableCell>
-              <TableCell align="right">Aksi</TableCell>
+              <TableCell align="right">Edit / Delete</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>

@@ -18,7 +18,7 @@ import Button from "@mui/material/Button";
 import MenuIcon from "@mui/icons-material/Menu";
 import DashboardOutlinedIcon from "@mui/icons-material/DashboardOutlined";
 import Inventory2OutlinedIcon from "@mui/icons-material/Inventory2Outlined";
-import ReceiptLongOutlinedIcon from "@mui/icons-material/ReceiptLongOutlined";
+import ContactPhoneOutlinedIcon from "@mui/icons-material/ContactPhoneOutlined";
 import ManageAccountsOutlinedIcon from "@mui/icons-material/ManageAccountsOutlined";
 import StorefrontOutlinedIcon from "@mui/icons-material/StorefrontOutlined";
 import LogoutIcon from "@mui/icons-material/Logout";
@@ -28,7 +28,7 @@ import { SIDEBAR_WIDTH } from "@/components/admin/constants";
 const MENU = [
   { href: "/admin", label: "Ringkasan", Icon: DashboardOutlinedIcon },
   { href: "/admin/products", label: "Produk", Icon: Inventory2OutlinedIcon },
-  { href: "/admin/orders", label: "Pesanan", Icon: ReceiptLongOutlinedIcon },
+    { href: "/admin/leads", label: "Leads", Icon: ContactPhoneOutlinedIcon },
   { href: "/admin/accounts", label: "Akun admin", Icon: ManageAccountsOutlinedIcon },
 ];
 
